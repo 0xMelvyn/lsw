@@ -18,7 +18,7 @@ export default function RootLayout({ children, Component, pageProps }) {
   return (
     <>  
         <Head>
-        <title>Lulu's Sweet World</title>
+        <title>Lulus Sweet World</title>
         <meta name="description" content="Boutique de crochet 100% fait main." />
       </Head>
         <Header />

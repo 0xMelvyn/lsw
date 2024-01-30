@@ -269,7 +269,7 @@ export default function Home() {
       <div className='flex justify-around'>
         <Image src={h3} alt='3'/>
       </div>
-      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-dense text-gray-600 text-center	'>JE TE L'ENVOIE</h1>
+      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-dense text-gray-600 text-center	'>JE TE LENVOIE</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
