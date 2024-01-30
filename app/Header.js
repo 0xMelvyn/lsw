@@ -21,7 +21,7 @@ export default function Header() {
                 <ul className={`flex justify-center items-center`}>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/peluches">PELUCHES</Link></h1></li>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/mode">MODE</Link></h1></li>
-                    <a className='flex justify-center' href="/"><Image src={logo} width={170} height={170}/></a>
+                    <Link className='flex justify-center' href="/"><Image src={logo} width={170} height={170}/></Link>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/maison">MAISON</Link></h1></li>
                     <li onClick={setOpenModal} className='w-1/5 lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 hover:cursor-pointer'>
                 {cartItems.length > -1 && (
