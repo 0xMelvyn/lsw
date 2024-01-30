@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'article';
+    src: url('../public/article.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Lovely Valentine'; /* Remplacez 'SecondFont' par le nom réel de votre deuxième police */
+    src: url('../public/LovelyValentine.otf') format('opentype'); /* Assurez-vous que le nom du fichier et l'extension sont corrects */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'dense'; /* Remplacez 'SecondFont' par le nom réel de votre deuxième police */
+    src: url('../public/dense.otf') format('opentype'); /* Assurez-vous que le nom du fichier et l'extension sont corrects */
+    font-weight: normal;
+    font-style: normal;
+  }

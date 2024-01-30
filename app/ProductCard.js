@@ -26,11 +26,11 @@ export default function ProductCard(props) {
     return (
         <div onClick={onProductClick} className='flex flex-col hover:scale-105 cursor-pointer transition-transform duration-300 ease-in-out'>
             <img src={productInfo.images[0]} alt={name} className="w-full h-full object-cover" />
-            <div className='flex flex-col gap-2 p-4'>
+            <div className='flex flex-col gap-2 p-2'>
                 <div className='items-center justify-between'>
-                    <h1 className='flex justify-center text-3xl mb-2'>{name}</h1>
-                    <hr className='w-6 mx-auto mt-2 border-black' />
-                    <h2 className='flex justify-center my-2 text-xl'>{cost / 100}€</h2>
+                    <h1 className='flex justify-center text-4xl text-gray-700 mb-2 font-dense'>{name}</h1>
+                    <hr className='w-6 mx-auto mt-2 border-gray-700' />
+                    <h2 className='flex justify-center my-2 text-2xl text-gray-700 font-dense'>{cost / 100}€</h2>
                 </div>
             </div>
 

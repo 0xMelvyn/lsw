@@ -6,7 +6,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'article': ['article', 'sans-serif'],
+        'LovelyValentine': ['Lovely Valentine', 'sans-serif'],
+        'dense': ['dense', 'sans-serif'],
+      },
+    },
   },
+  variants: {},
   plugins: [],
 }

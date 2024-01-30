@@ -24,15 +24,38 @@ const useCart = create(
 
         },
         addItemToCart: (params) => {
-            const { newItem } = params
-            set((state) => {
-                const newCart = [...state.cart, newItem]
+            const { newItem } = params;
+            const existingItemIndex = get().cart.findIndex(item => item.price_id === newItem.price_id);
+      
+            if (existingItemIndex !== -1) {
+              // If the item already exists in the cart, update its quantity
+              set((state) => {
+                const updatedCart = state.cart.map((item, index) => {
+                  if (index === existingItemIndex) {
+                    return {
+                      ...item,
+                      quantity: item.quantity + newItem.quantity
+                    };
+                  } else {
+                    return item;
+                  }
+                });
                 return {
-                    ...state,
-                    cart: newCart
-                }
-            })
-        },
+                  ...state,
+                  cart: updatedCart
+                };
+              });
+            } else {
+              // If the item is not in the cart, add it
+              set((state) => {
+                const newCart = [...state.cart, newItem];
+                return {
+                  ...state,
+                  cart: newCart
+                };
+              });
+            }
+          },
         removeItemFromCart: (params) => {
             const { itemIndex } = params
             set((state) => {
@@ -45,6 +68,28 @@ const useCart = create(
                 }
             })
         },
+        updateCartItemQuantity: (params) => {
+            const { itemIndex, newQuantity } = params;
+      
+            if (newQuantity >= 1) {
+              set((state) => {
+                const updatedCart = state.cart.map((item, index) => {
+                  if (index === itemIndex) {
+                    return {
+                      ...item,
+                      quantity: newQuantity
+                    };
+                  } else {
+                    return item;
+                  }
+                });
+                return {
+                  ...state,
+                  cart: updatedCart
+                };
+              });
+            }
+          },      
         emptyCart: () => {
             set((state) => {
                 const newCart = []

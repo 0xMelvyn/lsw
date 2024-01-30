@@ -25,7 +25,8 @@ import h4 from '../public/how-it-works-4.png.webp';
 import { BsInstagram } from 'react-icons/bs';
 import { FaTiktok } from 'react-icons/fa';
 import { FaFacebookF } from 'react-icons/fa';
-
+import ProductCard from '../app/ProductCard';
+import Stripe from 'stripe';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -73,6 +74,34 @@ export default function Home() {
     );
   }
 
+  async function getStripeProducts() {
+    const stripe = new Stripe(process.env.STRIPE_SECRET ?? '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', {
+      apiVersion: '2020-08-27'
+    });
+    const res = await stripe.prices.list({
+      expand: ['data.product']
+    });
+    const prices = res.data;
+    return prices;
+  }
+  
+    const [products, setProducts] = useState([]);
+  
+    useEffect(() => {
+      const fetchProducts = async () => {
+        const fetchedProducts = await getStripeProducts();
+        console.log(fetchedProducts);
+        setProducts(fetchedProducts);
+      };
+  
+      fetchProducts();
+    }, []);
+
+    const filteredProducts = products.filter(product => {
+      const productType = product.product.metadata.affichage;
+      return productType === 'populaire';
+    });
+
   const settings2 = {
     className: "center",
     centerMode: true,
@@ -107,10 +136,10 @@ export default function Home() {
           <div className='flex flex-col items-center justify-around border-2 border-black h-full'>
             <h1 className='text-sm lg:text-2xl text-gray-500'>NOUVEAUX ARTICLES</h1>
             <div className='text-center'>
-              <p className='text-3xl font-LovelyValentine lg:text-6xl lg:mx-32 lg:px-0'>La collection speciale Saint Valentin est la !</p>
+              <p className='text-4xl font-dense lg:text-8xl lg:mx-20 pb-2 lg:px-0'>La collection spéciale pâcques est là !</p>
               <hr className='w-2/3 border-black mx-auto' />
             </div>
-            <a href="#" className='bg-517e94 text-white px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out'>Voir la collection</a>
+            <a href="#" className='bg-517e94 px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out font-article'>Voir la collection</a>
           </div>
         </div>
         <div className='flex'>
@@ -133,17 +162,17 @@ export default function Home() {
           <div className='flex flex-col items-center justify-around border-2 border-black h-full'>
             <h1 className='text-sm lg:text-2xl text-gray-500'>NOUVEAUX ARTICLES</h1>
             <div className='text-center'>
-              <p className='text-3xl font-LovelyValentine lg:text-6xl lg:mx-32 lg:px-0'>La collection speciale Saint Valentin est la !</p>
+              <p className='text-4xl font-dense lg:text-8xl lg:mx-20 pb-2 lg:px-0'>La collection spéciale pâcques est là !</p>
               <hr className='w-2/3 border-black mx-auto' />
             </div>
-            <a href="#" className='bg-517e94 text-white px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out'>Voir la collection</a>
+            <a href="#" className='bg-517e94 px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out font-article'>Voir la collection</a>
           </div>
         </div>
         <div className='flex'>
-          <Image src={i5} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
+          <Image src={i5} alt="Homepage 1" className='w-1/2 lg:w-1/4 rounded-se-md'/>
           <Image src={i6} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
           <Image src={i7} alt="Homepage 1" className='w-0 lg:w-1/4'/>
-          <Image src={i8} alt="Homepage 1" className='w-0 lg:w-1/4'/>
+          <Image src={i8} alt="Homepage 1" className='w-0 lg:w-1/4'/>          
         </div>
       </div>
     </div>
@@ -159,17 +188,17 @@ export default function Home() {
           <div className='flex flex-col items-center justify-around border-2 border-black h-full'>
             <h1 className='text-sm lg:text-2xl text-gray-500'>NOUVEAUX ARTICLES</h1>
             <div className='text-center'>
-              <p className='text-3xl font-LovelyValentine lg:text-6xl lg:mx-32 lg:px-0'>La collection speciale Saint Valentin est la !</p>
+              <p className='text-4xl font-dense lg:text-8xl lg:mx-20 pb-2 lg:px-0'>La collection spéciale pâcques est là !</p>
               <hr className='w-2/3 border-black mx-auto' />
             </div>
-            <a href="#" className='bg-517e94 text-white px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out'>Voir la collection</a>
+            <a href="#" className='bg-517e94 px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out font-article'>Voir la collection</a>
           </div>
         </div>
         <div className='flex'>
-          <Image src={i5} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
+          <Image src={i5} alt="Homepage 1" className='w-1/2 lg:w-1/4 rounded-se-md'/>
           <Image src={i6} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
           <Image src={i7} alt="Homepage 1" className='w-0 lg:w-1/4'/>
-          <Image src={i8} alt="Homepage 1" className='w-0 lg:w-1/4'/>
+          <Image src={i8} alt="Homepage 1" className='w-0 lg:w-1/4'/>          
         </div>
       </div>
     </div>
@@ -205,37 +234,16 @@ export default function Home() {
         </section>
 
         <section className='pt-10 lg:pt-20'>
-          <h1 className='flex justify-center text-7xl text-cyan-700 font-logo'>Les plus populaires</h1>
+          <h1 className='flex justify-center text-7xl text-cyan-700 font-dense pb-5'>LES PLUS POPULAIRES</h1>
 
           <Slider {...settings2} className=''>
-  <div className=''>
-    <div className='mx-2 lg:mx-10'>
-      <div className={`pt-10 transform ${currentSlide2 === 0 ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
-        <Image src={i1} alt="Image 1" className='py-10'/>
+          {filteredProducts.map((product, productIndex) => (
+    <div key={productIndex}>
+      <div className={`mx-2 lg:mx-10 py-10 transform ${currentSlide2 === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
+        <ProductCard product={product} />
       </div>
     </div>
-  </div>
-  <div className='flex justify-around '>
-    <div className='mx-2 lg:mx-10'>
-      <div className={`pt-10 transform ${currentSlide2 === 1 ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
-        <Image src={i2} alt="Image 2" className='py-10'/>
-      </div>
-    </div>
-  </div>
-  <div className='flex justify-around  '>
-    <div className='mx-2 lg:mx-10'>
-      <div className={`pt-10 transform ${currentSlide2 === 2 ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
-        <Image src={i3} alt="Image 3" className='py-10'/>
-      </div>
-    </div>
-  </div>
-  <div className='flex justify-around '>
-    <div className='mx-2 lg:mx-10'>
-      <div className={`pt-10 transform ${currentSlide2 === 3 ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
-        <Image src={i4} alt="Image 4" className='py-10'/>
-      </div>
-    </div>
-  </div>
+  ))}
 </Slider>
     </section>
 
@@ -247,28 +255,28 @@ export default function Home() {
       <div className='flex justify-around'>
         <Image src={h1} alt='1'/>
       </div>
-      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center'>Choisis ta peluche</h1>
+      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-dense text-gray-600 text-center'>CHOISIS TA PELUCHE</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
         <Image src={h2} alt='2'/>
       </div>
-      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center	'>Je la fais avec amour</h1>
+      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-dense text-gray-600 text-center	'>JE LA FAIS AVEC AMOUR</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
         <Image src={h3} alt='3'/>
       </div>
-      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center	'>Je te l&apos;envoie</h1>
+      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-dense text-gray-600 text-center	'>JE TE L'ENVOIE</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
         <Image src={h4} alt='4'/>
       </div>
-      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center'>Tu la câlines !</h1>
+      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-dense text-gray-600 text-center'>TU LA CÂLINES !</h1>
     </div>
 
 </div>

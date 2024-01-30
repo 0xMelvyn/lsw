@@ -1,8 +1,10 @@
-import '../app/globals.css'
+import '../style/globals.css'
+import Head from 'next/head';
+
 
 export const metadata = {
   title: "Lulu's Sweet world",
-  description: 'Hyperinflated fruit store - best prices 2033',
+  description: 'Boutique de crochet 100% fait main.',
 }
 
 import { Inter } from 'next/font/google'
@@ -14,7 +16,11 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children, Component, pageProps }) {
 
   return (
-    <>
+    <>  
+        <Head>
+        <title>Lulu's Sweet World</title>
+        <meta name="description" content="Boutique de crochet 100% fait main." />
+      </Head>
         <Header />
         <div className='flex-1'>
         <Component {...pageProps} />

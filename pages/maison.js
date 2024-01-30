@@ -16,7 +16,7 @@ async function getStripeProducts() {
   return prices;
 }
 
-const PeluchesPage = () => {
+const ModePage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -32,12 +32,12 @@ const PeluchesPage = () => {
   // Filter products based on metadata before rendering
   const filteredProducts = products.filter(product => {
     const productType = product.product.metadata.type;
-    return productType === 'peluche';
+    return productType === 'maison';
   });
 
   return (
     <main className='p-4 flex flex-col'>
-      <div className='pt-4 max-w-[1300px] w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+      <div className='pt-4 max-w-[1300px] w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7'>
         {filteredProducts.map((product, productIndex) => (
           <ProductCard key={productIndex} product={product} />
         ))}
@@ -46,4 +46,4 @@ const PeluchesPage = () => {
   );
 };
 
-export default PeluchesPage;
+export default ModePage;

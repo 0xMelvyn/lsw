@@ -12,21 +12,24 @@ export default function Header() {
     const openModal = useCart(state => state.openModal)
     const setOpenModal = useCart(state => state.setOpenModal)
     console.log(cartItems)
+
+    const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+
     return (
         <header>
             {openModal && (
                 <Modal />
             )}
             <nav className='flex justify-center items-center'>
-                <ul className={`flex justify-center items-center`}>
+                <ul className={`flex w-screen justify-center items-center`}>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/peluches">PELUCHES</Link></h1></li>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/mode">MODE</Link></h1></li>
                     <Link className='flex justify-center' href="/"><Image src={logo} alt='Logo' width={170} height={170}/></Link>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/maison">MAISON</Link></h1></li>
                     <li onClick={setOpenModal} className='w-1/5 lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 hover:cursor-pointer'>
-                {cartItems.length > -1 && (
-                    <div className='absolute aspect-square pointer-events-none h-5 sm:h-6 grid place-items-center top-16 bg-blue-400 text-white rounded-full right-30 -translate-y-1/2 translate-x-1/2' >
-                        <p className='text-xs sm:text-sm'>{cartItems.length}</p>
+                {totalQuantity > -1 && (
+                    <div className='absolute aspect-square pointer-events-none h-5 sm:h-6 grid place-items-center top-18 bg-blue-400 text-white rounded-full right-30 -translate-y-1/2 translate-x-1/2' >
+                        <p className='text-xs sm:text-sm'>{totalQuantity}</p>
                     </div>
                 )}
                 <BsCart3 className='text-2xl hover:text-blue-300 transition duration-500 text-gray-500' />

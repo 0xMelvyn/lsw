@@ -25,7 +25,8 @@ function ProductPage(props) {
       quantity: 1,
       price_id: product.price_id,
       name,
-      cost
+      cost,
+      images: productInfo.images
     };
     addItemToCart({ newItem });
 
