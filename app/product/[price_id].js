@@ -2,6 +2,7 @@
 import useCart from "../(store)/store";
 import { useRouter } from 'next/router';
 import { useEffect } from "react";
+import Image from "next/image";
 
 function ProductPage(props) {
   const router = useRouter();
@@ -40,7 +41,7 @@ function ProductPage(props) {
     <div className="flex flex-col p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1000px] mx-auto">
         <div className="md:p-2 md:shadow">
-          <img src={productInfo?.images[0]} alt={name} className="w-full h-full object-cover" />
+          <Image src={productInfo?.images[0]} alt={name} className="w-full h-full object-cover" />
         </div>
         <div className="flex flex-col gap-2 p-4">
           <div className="flex md:flex-col text-xl items-center justify-between gap-2">

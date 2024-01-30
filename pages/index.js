@@ -182,9 +182,11 @@ export default function Home() {
               <Image
                 src={mathilde}
                 width={330}
+                alt='Lulu'
               />
               <div>
-                <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>Lucile, creatrice de Lulu's Sweet World</p>
+              <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
+  Lucile, creatrice de Lulu&apos;s Sweet World</p>
               </div>
             </div>
           </div>
@@ -192,7 +194,7 @@ export default function Home() {
             <div className='border-dashed border-4 border-gray-700 py-10 px-10 lg:px-20 text-xl font-article rounded-3xl'>
             <p className='text-5xl text-gray-800'>Bienvenue !</p>
             <br />
-            <p className='text-gray-700'>Je suis Mathilde, 19 ans, créatrice passionnée de peluches et d'accessoires au crochet. Depuis mon enfance, je transforme des fils de laine en pièces uniques et charmantes. En lançant mon entreprise indépendante, je mets en avant mon style et ma passion pour l'artisanat fait main. Chaque création que je réalise reflète ma créativité et mon amour pour le crochet. qjenfi inzjenf iuzefj nziue nfiuzenf inzeifun ziufn iuzenf iuz jnzjenfiu fnize nizeufn ziuenf  zjenfi znefu ne nzinfzi unfiuerf zioenjfoi zufn iuzr</p>
+            <p className='text-gray-700'>Je suis Mathilde, 19 ans, créatrice passionnée de peluches et d&apos;accessoires au crochet. Depuis mon enfance, je transforme des fils de laine en pièces uniques et charmantes. En lançant mon entreprise indépendante, je mets en avant mon style et ma passion pour l&apos;artisanat fait main. Chaque création que je réalise reflète ma créativité et mon amour pour le crochet. qjenfi inzjenf iuzefj nziue nfiuzenf inzeifun ziufn iuzenf iuz jnzjenfiu fnize nizeufn ziuenf  zjenfi znefu ne nzinfzi unfiuerf zioenjfoi zufn iuzr</p>
             </div>
             <div className='flex pt-7 justify-center gap-10'>
               <a href="https://www.instagram.com/lulus_sweet_world/" target='#blank' className="mt-4 text-3xl text-white flex items-center justify-center w-12 h-12 bg-517e94 hover:bg-b0e7f5 transition duration-500 rounded-full"><BsInstagram /></a>
@@ -243,28 +245,28 @@ export default function Home() {
 
     <div className=' lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
-        <Image src={h1}/>
+        <Image src={h1} alt='1'/>
       </div>
       <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center'>Choisis ta peluche</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
-        <Image src={h2}/>
+        <Image src={h2} alt='2'/>
       </div>
       <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center	'>Je la fais avec amour</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
-        <Image src={h3}/>
+        <Image src={h3} alt='3'/>
       </div>
-      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center	'>Je te l'envoie</h1>
+      <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center	'>Je te l&apos;envoie</h1>
     </div>
 
     <div className='lg:flex lg:flex-col justify-center'>
       <div className='flex justify-around'>
-        <Image src={h4}/>
+        <Image src={h4} alt='4'/>
       </div>
       <h1 className='flex pt-2 justify-center text-2xl mb-2 font-article text-gray-600 text-center'>Tu la câlines !</h1>
     </div>
