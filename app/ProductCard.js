@@ -21,7 +21,7 @@ export default function ProductCard(props) {
             productInfo
         }
         setProduct({ newProduct })
-        router.push('/product?price_id=' + price_id)
+        router.push('/article?price_id=' + price_id)
     }
     return (
         <div onClick={onProductClick} className='flex flex-col hover:scale-105 cursor-pointer transition-transform duration-300 ease-in-out'>
