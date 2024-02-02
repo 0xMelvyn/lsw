@@ -29,20 +29,20 @@ export default function RootLayout({ children, Component, pageProps }) {
         </div>
         <footer className='flex items-center bg-cyan-700 flex-wrap justify-center p-4 md:p-8'>
         <div className='my-5 text-center'>
-            <a className='text-2xl text-white hover:text-gray-200 transition duration-500' href="/">Lulu's Sweet World</a>
+            <Link className='text-2xl text-white hover:text-gray-200 transition duration-500' href="/">Lulu&apos;s Sweet World</Link>
 
             <ul className='flex justify-center my-5 gap-5'>
-                <li><a className='text-white hover:text-gray-200 transition duration-500' href="/">Accueil</a></li>
-                <li><a className='text-white hover:text-gray-200 transition duration-500' href="/peluches">Peluches</a></li>
-                <li><a className='text-white hover:text-gray-200 transition duration-500' href="/mode">Mode</a></li>
-                <li><a className='text-white hover:text-gray-200 transition duration-500' href="/maison">Maison</a></li>
-                <li><a className='text-white hover:text-gray-200 transition duration-500' href="/contact">Contact</a></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/">Accueil</Link></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/peluches">Peluches</Link></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/mode">Mode</Link></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/maison">Maison</Link></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/contact">Contact</Link></li>
             </ul>
 
             <div className='flex justify-center text-center text-2xl my-5 gap-5'>
-                <a className='text-white hover:text-gray-200 transition duration-500' href="https://www.messenger.com/t/210061615523190/" target='_blank'><FaInstagram /></a>
-                <a className='text-white hover:text-gray-200 transition duration-500' href="https://www.linkedin.com/in/melvyn-hoarau" target='_blank'><FaYoutube /></a>
-                <a className='text-white hover:text-gray-200 transition duration-500' href="mailto:melvynhoarau@icloud.com" target='_blank'><FaTiktok /></a>
+                <Link className='text-white hover:text-gray-200 transition duration-500' href="https://www.instagram.com/lulus_sweet_world/" target='_blank'><FaInstagram /></Link>
+                <Link className='text-white hover:text-gray-200 transition duration-500' href="https://www.youtube.com/@lulussweetworld" target='_blank'><FaYoutube /></Link>
+                <Link className='text-white hover:text-gray-200 transition duration-500' href="https://www.tiktok.com/@lulussweetworld" target='_blank'><FaTiktok /></Link>
             </div>
 
             <div className='text-center'>

@@ -241,7 +241,7 @@ export default function Home() {
             </div>
           </div>
             <br />
-            <p className='text-gray-700 pt-5 lg:pt-0 font-article'>Bienvenue à tous les amoureux de l'artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
+            <p className='text-gray-700 pt-5 lg:pt-0 font-article'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
             </div>
           </div>
         </section>

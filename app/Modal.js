@@ -83,7 +83,6 @@ export default function Modal() {
                           onClick={() => removeItemFromCart({ itemIndex })}
                           className='w-1/2 cursor-pointer text-xl'
                         >
-                          <MdDelete />
                         </button>
                         </div>
                       </div>
