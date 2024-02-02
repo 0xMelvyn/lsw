@@ -22,9 +22,6 @@ import h1 from '../public/how-it-works-1.png.webp';
 import h2 from '../public/how-it-works-2.png.webp';
 import h3 from '../public/how-it-works-3.png.webp';
 import h4 from '../public/how-it-works-4.png.webp';
-import { BsInstagram } from 'react-icons/bs';
-import { FaTiktok } from 'react-icons/fa';
-import { FaFacebookF } from 'react-icons/fa';
 import ProductCard from '../app/ProductCard';
 import Stripe from 'stripe';
 
@@ -205,8 +202,16 @@ export default function Home() {
   </Slider>
 </section>
         
-        <section className='mt-20 pt-10 pb-5'>
-          <div className='-rotate-[5deg] flex lg:absolute justify-center mx-20'>
+        <section className='mt-20 lg:pt-10 lg:pb-20'>
+          <div className='hidden lg:block absolute w-full pt-32 px-10'>
+            <hr className='pt-6' />
+            <hr className='pt-7' />
+            <hr className='pt-6' />
+            <hr className='pt-6' />
+            <hr className='pt-7' />
+            <hr className='pt-6' />
+          </div>
+          <div className='hidden -rotate-[5deg] lg:flex lg:absolute justify-center mx-20'>
             <div className=' justify-center p-2 pb-3 bg-red-200'>
               <Image
                 src={mathilde}
@@ -219,16 +224,24 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className='lg:w-2/3 mx-8 md:mx-72 lg:ml-96 my-10 lg:my-0'>
+          <div className='lg:w-2/3 pt-8 mx-8 md:mx-72 lg:ml-96 my-10 lg:my-0'>
             <div className='border-dashed border-4 border-gray-700 py-10 px-10 lg:px-20 text-xl font-article rounded-3xl'>
-            <p className='text-5xl text-gray-800'>Bienvenue !</p>
-            <br />
-            <p className='text-gray-700'>Je suis Mathilde, 19 ans, créatrice passionnée de peluches et d&apos;accessoires au crochet. Depuis mon enfance, je transforme des fils de laine en pièces uniques et charmantes. En lançant mon entreprise indépendante, je mets en avant mon style et ma passion pour l&apos;artisanat fait main. Chaque création que je réalise reflète ma créativité et mon amour pour le crochet. qjenfi inzjenf iuzefj nziue nfiuzenf inzeifun ziufn iuzenf iuz jnzjenfiu fnize nizeufn ziuenf  zjenfi znefu ne nzinfzi unfiuerf zioenjfoi zufn iuzr</p>
+            <p className='text-5xl text-gray-800'>Qui suis-je ?</p>
+            <div className='lg:hidden -rotate-[5deg] flex lg:absolute pt-10 justify-center mx-2'>
+            <div className=' justify-center p-2 pb-3 bg-red-200'>
+              <Image
+                src={mathilde}
+                width={330}
+                alt='Lulu'
+              />
+              <div>
+              <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
+  Lucile, creatrice de Lulu&apos;s Sweet World</p>
+              </div>
             </div>
-            <div className='flex pt-7 justify-center gap-10'>
-              <a href="https://www.instagram.com/lulus_sweet_world/" target='#blank' className="mt-4 text-3xl text-white flex items-center justify-center w-12 h-12 bg-517e94 hover:bg-b0e7f5 transition duration-500 rounded-full"><BsInstagram /></a>
-              <a href="https://www.tiktok.com/@lulussweetworld" target='#blank' className="mt-4 text-3xl text-white flex items-center justify-center w-12 h-12 bg-517e94 hover:bg-b0e7f5 transition duration-500 rounded-full"><FaTiktok /></a>
-              <a href="#" className="mt-4 text-3xl text-white flex items-center justify-center w-12 h-12 bg-517e94 hover:bg-b0e7f5 transition duration-500 rounded-full"><FaFacebookF /></a>
+          </div>
+            <br />
+            <p className='text-gray-700 pt-5 lg:pt-0 font-article'>Bienvenue à tous les amoureux de l'artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
             </div>
           </div>
         </section>
@@ -239,7 +252,7 @@ export default function Home() {
           <Slider {...settings2} className=''>
           {filteredProducts.map((product, productIndex) => (
     <div key={productIndex}>
-      <div className={`mx-2 lg:mx-10 py-10 transform ${currentSlide2 === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
+      <div className={`mx-4 lg:mx-10 py-10 transform ${currentSlide2 === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
         <ProductCard product={product} />
       </div>
     </div>

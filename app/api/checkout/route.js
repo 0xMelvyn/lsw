@@ -22,6 +22,8 @@ export async function POST(request) {
             success_url: 'http://localhost:3000/success',
             cancel_url: 'http://localhost:3000/cancel',
             line_items: body.lineItems,
+            shipping_address_collection: {
+            allowed_countries: ['FR'],},
             mode: 'payment'
         })
         return NextResponse.json({ session })

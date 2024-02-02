@@ -20,9 +20,9 @@ export default function Header() {
             {openModal && (
                 <Modal />
             )}
-            <nav className='flex justify-center items-center'>
+            <nav className='flex justify-center items-center px-40'>
                 <ul className={`flex w-screen justify-center items-center`}>
-                    <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/peluches">PELUCHES</Link></h1></li>
+                    <li className='w-1/5 px-4'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/peluches">PELUCHES</Link></h1></li>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/mode">MODE</Link></h1></li>
                     <Link className='flex justify-center' href="/"><Image src={logo} alt='Logo' width={170} height={170}/></Link>
                     <li className='w-1/5'><h1 className={`lg:text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/maison">MAISON</Link></h1></li>
