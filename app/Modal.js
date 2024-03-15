@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import useCart from './(store)/store';
 import { IoMdCloseCircle } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
 
 export default function Modal() {
   const closeModal = useCart((state) => state.setOpenModal);
@@ -83,6 +84,7 @@ export default function Modal() {
                           onClick={() => removeItemFromCart({ itemIndex })}
                           className='w-1/2 cursor-pointer text-xl'
                         >
+                          <MdDelete />
                         </button>
                         </div>
                       </div>
