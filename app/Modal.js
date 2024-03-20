@@ -31,7 +31,7 @@ export default function Modal() {
 
     const data = await res.json();
     // Rediriger l'utilisateur vers la page de paiement
-    router.push(data.session.url, '_blank');
+    router.push(data.session.url);
   }
 
   return ReactDom.createPortal(
