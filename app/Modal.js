@@ -30,7 +30,8 @@ export default function Modal() {
     });
 
     const data = await res.json();
-    window.open(data.session.url, '_blank');
+    // Rediriger l'utilisateur vers la page de paiement
+    router.push(data.session.url, '_blank');
   }
 
   return ReactDom.createPortal(
