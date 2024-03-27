@@ -225,8 +225,8 @@ export default function Home() {
             </div>
           </div>
           <div className='lg:w-2/3 pt-8 mx-8 md:mx-72 lg:ml-96 my-10 lg:my-0'>
-            <div className='border-dashed border-4 border-gray-700 py-10 px-10 lg:px-20 text-xl font-article rounded-3xl'>
-            <p className='text-5xl text-gray-800'>Qui suis-je ?</p>
+            <div className='border-dashed border-4 border-gray-700 py-10 px-6 lg:px-20 text-xl font-article rounded-3xl'>
+            <p className='text-5xl text-gray-800 text-center lg:text-left'>Qui suis-je ?</p>
             <div className='lg:hidden -rotate-[5deg] flex lg:absolute pt-10 justify-center mx-2'>
             <div className=' justify-center p-2 pb-3 bg-red-200'>
               <Image
@@ -241,13 +241,13 @@ export default function Home() {
             </div>
           </div>
             <br />
-            <p className='text-gray-700 pt-5 lg:pt-0 font-article'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
+            <p className='text-gray-700 pt-5 lg:pt-0 font-article text-justify'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
             </div>
           </div>
         </section>
 
         <section className='pt-10 lg:pt-20'>
-          <h1 className='flex justify-center text-7xl text-cyan-700 font-dense pb-5'>LES PLUS POPULAIRES</h1>
+          <h1 className='flex justify-center text-7xl text-cyan-700 font-dense pb-5 text-center'>LES PLUS POPULAIRES</h1>
 
           <Slider {...settings2} className=''>
           {filteredProducts.map((product, productIndex) => (
