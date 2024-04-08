@@ -118,15 +118,15 @@ export default function Home({ stripeSecret }) {
     className: "center",
     centerMode: true,
     centerPadding: "100px",
-    arrows: true, 
+    arrows: isMobile ? false : true, 
     infinite: true,
     speed: 500,
     slidesToShow: isMobile ? 1 : 3, // Ajustement ici pour afficher 1 seul slide sur mobile
     slidesToScroll: 1,
     autoplay: false,
     pauseOnHover: false,
-    prevArrow: isMobile ? false : <SamplePrevArrow />,
-    nextArrow: isMobile ? false : <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow />,
     beforeChange: (current, next) => setCurrentSlide2(next),
   };
 
@@ -224,7 +224,7 @@ export default function Home({ stripeSecret }) {
           <Slider {...settings2} className=''>
           {filteredProducts.map((product, productIndex) => (
     <div key={productIndex}>
-      <div className={`mx-4 lg:mx-10 py-10 transform ${currentSlide2 === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
+      <div className={` px-3 lg:px-0 lg:mx-10 py-10 transform ${currentSlide2 === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
         <ProductCard product={product} />
       </div>
     </div>
