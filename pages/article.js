@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import useCart from "../app/(store)/store";
 import { useState } from 'react';
 
-
 // Chargez la clé publique de Stripe
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
@@ -11,7 +10,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 const getArticles = async () => {
   const response = await fetch('https://api.stripe.com/v1/products', {
     headers: {
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer ${process.env.STRIPE_SECRET}`,
     },
   });
 
@@ -22,7 +21,7 @@ const getArticles = async () => {
     articles.data.map(async (article) => {
       const priceResponse = await fetch(`https://api.stripe.com/v1/prices/${article.default_price}`, {
         headers: {
-          Authorization: `Bearer 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`,
+          Authorization: `Bearer ${process.env.STRIPE_SECRET}`,
         },
       });
 

@@ -6,6 +6,8 @@ import Modal from './Modal'
 import { BsCart3 } from "react-icons/bs";
 import logo from '../public/logosite.gif';
 import Image from 'next/image';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default function Header() {
     const cartItems = useCart(state => state.cart)

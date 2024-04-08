@@ -25,9 +25,52 @@ import h4 from '../public/how-it-works-4.png.webp';
 import ProductCard from '../app/ProductCard';
 import Stripe from 'stripe';
 
-export default function Home() {
+export async function getServerSideProps() {
+  // Votre logique pour récupérer stripeSecret
+  return {
+    props: {
+      stripeSecret: process.env.STRIPE_SECRET || 'YOUR_DEFAULT_VALUE'
+    }
+  };
+}
+
+export default function Home({ stripeSecret }) {  
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentSlide2, setCurrentSlide2] = useState(0);
+
+
+  async function getStripeProducts(stripeSecret) {
+    const stripe = new Stripe(stripeSecret, {
+      apiVersion: '2020-08-27'
+    });
+    const res = await stripe.prices.list({
+      expand: ['data.product']
+    });
+    const prices = res.data;
+    return prices;
+  }
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const fetchedProducts = await getStripeProducts(stripeSecret);
+        setProducts(fetchedProducts);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false); // Fin du chargement, quelle que soit la situation
+      }
+    };
+
+    fetchProducts();
+  }, [stripeSecret]);
+
+  const filteredProducts = products.filter(product => {
+    const productType = product.product.metadata.affichage;
+    return productType === 'populaire';
+  });
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -71,34 +114,6 @@ export default function Home() {
     );
   }
 
-  async function getStripeProducts() {
-    const stripe = new Stripe(process.env.STRIPE_SECRET ?? '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', {
-      apiVersion: '2020-08-27'
-    });
-    const res = await stripe.prices.list({
-      expand: ['data.product']
-    });
-    const prices = res.data;
-    return prices;
-  }
-  
-    const [products, setProducts] = useState([]);
-  
-    useEffect(() => {
-      const fetchProducts = async () => {
-        const fetchedProducts = await getStripeProducts();
-        console.log(fetchedProducts);
-        setProducts(fetchedProducts);
-      };
-  
-      fetchProducts();
-    }, []);
-
-    const filteredProducts = products.filter(product => {
-      const productType = product.product.metadata.affichage;
-      return productType === 'populaire';
-    });
-
   const settings2 = {
     className: "center",
     centerMode: true,
@@ -110,8 +125,8 @@ export default function Home() {
     slidesToScroll: 1,
     autoplay: false,
     pauseOnHover: false,
-    prevArrow: <SamplePrevArrow />,
-    nextArrow: <SampleNextArrow />,
+    prevArrow: isMobile ? false : <SamplePrevArrow />,
+    nextArrow: isMobile ? false : <SampleNextArrow />,
     beforeChange: (current, next) => setCurrentSlide2(next),
   };
 
@@ -202,51 +217,8 @@ export default function Home() {
   </Slider>
 </section>
         
-        <section className='mt-20 lg:pt-10 lg:pb-20'>
-          <div className='hidden lg:block absolute w-full pt-32 px-10'>
-            <hr className='pt-6' />
-            <hr className='pt-7' />
-            <hr className='pt-6' />
-            <hr className='pt-6' />
-            <hr className='pt-7' />
-            <hr className='pt-6' />
-          </div>
-          <div className='hidden -rotate-[5deg] lg:flex lg:absolute justify-center mx-20'>
-            <div className=' justify-center p-2 pb-3 bg-red-200'>
-              <Image
-                src={mathilde}
-                width={330}
-                alt='Lulu'
-              />
-              <div>
-              <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
-  Lucile, creatrice de Lulu&apos;s Sweet World</p>
-              </div>
-            </div>
-          </div>
-          <div className='lg:w-2/3 pt-8 mx-8 md:mx-72 lg:ml-96 my-10 lg:my-0'>
-            <div className='border-dashed border-4 border-gray-700 py-10 px-6 lg:px-20 text-xl font-article rounded-3xl'>
-            <p className='text-5xl text-gray-800 text-center lg:text-left'>Qui suis-je ?</p>
-            <div className='lg:hidden -rotate-[5deg] flex lg:absolute pt-10 justify-center mx-2'>
-            <div className=' justify-center p-2 pb-3 bg-red-200'>
-              <Image
-                src={mathilde}
-                width={330}
-                alt='Lulu'
-              />
-              <div>
-              <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
-  Lucile, creatrice de Lulu&apos;s Sweet World</p>
-              </div>
-            </div>
-          </div>
-            <br />
-            <p className='text-gray-700 pt-5 lg:pt-0 font-article text-justify'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
-            </div>
-          </div>
-        </section>
 
-        <section className='pt-10 lg:pt-20'>
+        <section className='pt-20 lg:pt-32'>
           <h1 className='flex justify-center text-7xl text-cyan-700 font-dense pb-5 text-center'>LES PLUS POPULAIRES</h1>
 
           <Slider {...settings2} className=''>
@@ -295,6 +267,51 @@ export default function Home() {
 </div>
 
 </section>
+
+
+<section className='mt-20 lg:pt-10 lg:pb-20'>
+          <div className='hidden lg:block absolute w-full pt-32 px-10'>
+            <hr className='pt-6' />
+            <hr className='pt-7' />
+            <hr className='pt-6' />
+            <hr className='pt-6' />
+            <hr className='pt-7' />
+            <hr className='pt-6' />
+          </div>
+          <div className='hidden -rotate-[5deg] lg:flex lg:absolute justify-center mx-20'>
+            <div className=' justify-center p-2 pb-3 bg-red-200'>
+              <Image
+                src={mathilde}
+                width={330}
+                alt='Lulu'
+              />
+              <div>
+              <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
+  Lucile, creatrice de Lulu&apos;s Sweet World</p>
+              </div>
+            </div>
+          </div>
+          <div className='lg:w-2/3 pt-8 mx-8 md:mx-72 lg:ml-96 my-10 lg:my-0'>
+            <div className='border-dashed border-4 border-gray-700 py-10 px-6 lg:px-20 text-xl font-article rounded-3xl'>
+            <p className='text-5xl text-gray-800 text-center lg:text-left'>Qui suis-je ?</p>
+            <div className='lg:hidden -rotate-[5deg] flex lg:absolute pt-10 justify-center mx-2'>
+            <div className=' justify-center p-2 pb-3 bg-red-200'>
+              <Image
+                src={mathilde}
+                width={330}
+                alt='Lulu'
+              />
+              <div>
+              <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
+  Lucile, creatrice de Lulu&apos;s Sweet World</p>
+              </div>
+            </div>
+          </div>
+            <br />
+            <p className='text-gray-700 pt-5 lg:pt-0 font-article text-justify'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main </span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon coeur.</p>
+            </div>
+          </div>
+        </section>
 
       </main>
     </div>

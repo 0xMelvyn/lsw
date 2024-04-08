@@ -14,7 +14,7 @@ export async function POST(request) {
     }
 
     try {
-        const stripe = new Stripe(process.env.STRIPE_SECRET ?? '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', {
+        const stripe = new Stripe(process.env.STRIPE_SECRET ?? '', {
             apiVersion: '2020-08-27'
         })
 

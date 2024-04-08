@@ -1,6 +1,10 @@
 import '../style/globals.css'
 import Head from 'next/head';
 import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import Image from 'next/image';
+import wave from '../public/Waveblue.png';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 export const metadata = {
@@ -26,6 +30,12 @@ export default function RootLayout({ children, Component, pageProps }) {
         <div className='flex-1'>
         <Component {...pageProps} />
           {children}
+        </div>
+        <div className='flex'>
+        <Image src={wave} alt="Wave" className=' w-1/4'/>
+        <Image src={wave} alt="Wave" className=' w-1/4'/>
+        <Image src={wave} alt="Wave" className=' w-1/4'/>
+        <Image src={wave} alt="Wave" className=' w-1/4'/>
         </div>
         <footer className='flex items-center bg-cyan-700 flex-wrap justify-center p-4 md:p-8'>
         <div className='my-5 text-center'>
