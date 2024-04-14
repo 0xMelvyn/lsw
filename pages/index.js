@@ -106,7 +106,7 @@ export default function Home({ stripeSecret }) {
     pauseOnHover: false,
     prevArrow: <SamplePrevArrow />,
     nextArrow: <SampleNextArrow />,
-    beforeChange: (current, next) => setCurrentSlide(next),
+    beforeChange: (current, next) => setCurrentSlide2(next),
   };
 
 
