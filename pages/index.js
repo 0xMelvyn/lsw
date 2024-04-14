@@ -120,7 +120,7 @@ export default function Home({ stripeSecret }) {
     <Slider {...settings} className=''>
     {filteredProducts.map((product, productIndex) => (
 <div key={productIndex}>
-<div className={` px-3 lg:px-0 lg:mx-10 py-10 transform ${currentSlide === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
+<div className={` px-3 lg:px-0 lg:mx-10 py-10 transform ${currentSlide2 === productIndex ? 'scale-110 transition-transform' : 'scale-100 transition-transform'}`}>
   <ProductCard product={product} />
 </div>
 </div>
