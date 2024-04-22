@@ -37,6 +37,11 @@ async function getStripeProduct(price_id) {
 const ArticlePage = ({ product }) => {
   const router = useRouter();
 
+  // Utiliser le hook useState pour gérer l'état de selectedImage
+  const [selectedImage, setSelectedImage] = useState(null);
+  // Utiliser le hook useCart pour récupérer la fonction addItemToCart
+  const addItemToCart = useCart(state => state.addItemToCart);
+
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -50,9 +55,6 @@ const ArticlePage = ({ product }) => {
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
-
-  const addItemToCart = useCart(state => state.addItemToCart);
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleAddToCart = () => {
     console.log('PRICE ID: ', product.price_id);
