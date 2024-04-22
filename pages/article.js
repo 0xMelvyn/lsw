@@ -1,108 +1,115 @@
-import { loadStripe } from '@stripe/stripe-js';
+// article.js
+
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import useCart from "../app/(store)/store";
-import { useState } from 'react';
+import useCart from '../app/(store)/store';
+import Stripe from 'stripe';
 
-// Chargez la clé publique de Stripe
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET, {
+  apiVersion: '2024-04-10'
+});
 
-// Fonction pour obtenir les articles depuis Stripe (côté serveur ou client)
-const getArticles = async () => {
-  const response = await fetch('https://api.stripe.com/v1/products', {
-    headers: {
-      Authorization: `Bearer ${process.env.STRIPE_SECRET}`,
-    },
-  });
+async function getStripeProduct(price_id) {
+  try {
+    // Utiliser la méthode retrieve pour récupérer les détails du prix
+    const price = await stripe.prices.retrieve(price_id, {
+      expand: ['product']
+    });
 
-  const articles = await response.json();
+    // Extraire les données pertinentes du prix et du produit associé
+    const product = {
+      price_id: price.id,
+      cost: price.unit_amount,
+      productInfo: price.product,
+      name: price.product.name,
+      description: price.product.description
+      // Vous pouvez ajouter d'autres champs si nécessaire
+    };
 
-  // Récupérer les détails du prix pour chaque article
-  const articlesWithPrices = await Promise.all(
-    articles.data.map(async (article) => {
-      const priceResponse = await fetch(`https://api.stripe.com/v1/prices/${article.default_price}`, {
-        headers: {
-          Authorization: `Bearer ${process.env.STRIPE_SECRET}`,
-        },
-      });
+    return product;
+  } catch (error) {
+    // Gérer les erreurs de récupération des données du produit
+    console.error('Error retrieving product data:', error);
+    return null;
+  }
+}
 
-      const priceData = await priceResponse.json();
-      return { ...article, price: priceData };
-    })
-  );
-
-  return articlesWithPrices;
-};
-const Test = ({ articles }) => {
-  console.log('Articles:', articles);
+const ArticlePage = ({ product }) => {
   const router = useRouter();
-  const { price_id } = router.query;
-  const addItemToCart = useCart(state => state.addItemToCart);
-  const [selectedImage, setSelectedImage] = useState(null);
 
-  const filteredArticles = articles.filter(
-    (article) => article.default_price === price_id
-  );
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+
+  const { name, description, cost, productInfo } = product;
 
   const formatDescription = (description) => {
     return description.replace(/@/g, '<br />');
-  };
-
-  const handleAddToCart = (article) => {
-    console.log('PRICE ID: ', article.default_price);
-    const newItem = {
-      quantity: 1,
-      price_id: article.default_price,
-      name: article.name,
-      cost: article.price.unit_amount,
-      images: article.images
-    };
-    addItemToCart({ newItem });
   };
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
 
+  const addItemToCart = useCart(state => state.addItemToCart);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleAddToCart = () => {
+    console.log('PRICE ID: ', product.price_id);
+    const newItem = {
+      quantity: 1,
+      price_id: product.price_id,
+      name: name,
+      cost: cost,
+      images: productInfo.images
+    };
+    addItemToCart({ newItem });
+  };
+
   return (
     <div className="flex flex-col pt-14 pb-24">    
-  {filteredArticles.map((article) => (
-    <div key={article.id} className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1050px] mx-auto lg:gap-20">
+  
+    <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1050px] mx-auto lg:gap-20">
     <div>
       <div className="md:p-2 md:shadow">
-        <img src={selectedImage || article.images} alt={article.name} className="w-full h-full object-cover" />
+      <img src={selectedImage || productInfo.images[0]} alt={name} className="w-full h-full object-cover" />
       </div>
       <div className='flex flex-row gap-2 justify-center px-5 pt-2'>
-        <img src={article.images} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(article.images)}/>
-        <img src={article.metadata.sup1} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(article.metadata.sup1)}/>
-        <img src={article.metadata.sup2} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(article.metadata.sup2)}/>
-        <img src={article.metadata.sup3} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(article.metadata.sup3)}/>
+        <img src={productInfo.images[0]} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(productInfo.images[0])}/>
+        <img src={productInfo.metadata.sup1} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(productInfo.metadata.sup1)}/>
+        <img src={productInfo.metadata.sup2} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(productInfo.metadata.sup2)}/>
+        <img src={productInfo.metadata.sup3} alt="Pas d'image" className="w-1/4 hover:scale-105 transition" onClick={() => handleImageClick(productInfo.metadata.sup3)}/>
       </div>
     </div>
       <div className="flex flex-col gap-2 p-4">
         <div className="lg:flex md:flex-col text-xl items-center justify-between gap-2">
-          <h1 className='py-3 text-6xl flex justify-center font-dense'>{article.name}</h1>
+          <h1 className='py-3 text-6xl flex justify-center font-dense'>{name}</h1>
           <hr className='w-6 mx-auto mt-2 border-black' />
-          {article.price && (
-            <h2 className='flex justify-center my-2 text-xl text-gray-800 font-article'>{(article.price.unit_amount / 100)} €</h2>
+          {cost && (
+            <h2 className='flex justify-center my-2 text-xl text-gray-800 font-article'>{(cost / 100)} €</h2>
           )}
         </div>
-        <p className='text-xl pt-5 lg:pt-10 font-article' dangerouslySetInnerHTML={{ __html: formatDescription(article.description) }} />
-        <button onClick={() => handleAddToCart(article)} className='flex mt-5 bg-cyan-700 justify-center mx-auto text-2xl text-white w-full py-3 rounded-md hover:bg-cyan-600 font-article'>Ajouter au panier</button>
+        <p className='text-xl pt-5 lg:pt-10 font-article' dangerouslySetInnerHTML={{ __html: formatDescription(description) }} />
+        <button onClick={handleAddToCart} className='flex mt-5 bg-cyan-700 justify-center mx-auto text-2xl text-white w-full py-3 rounded-md hover:bg-cyan-600 font-article'>Ajouter au panier</button>
       </div>
     </div>
-  ))}
 </div>
   );
 };
 
-export const getServerSideProps = async () => {
-  const articles = await getArticles();
+export async function getServerSideProps(context) {
+  // Récupérer le price_id à partir du contexte de la requête
+  const { price_id } = context.query;
 
+  // Récupérer les données des produits en utilisant la même fonction que peluches.js
+  const product = await getStripeProduct(price_id);
+
+  // Retourner les données des produits comme props
   return {
     props: {
-      articles,
+      product,
     },
   };
-};
+}
 
-export default Test;
+export default ArticlePage;

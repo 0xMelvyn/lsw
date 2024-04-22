@@ -23,6 +23,9 @@ const useCart = create(
             })
 
         },
+        getProduct: (priceId) => {
+          return get().product.price_id === priceId ? get().product : null;
+      },
         addItemToCart: (params) => {
             const { newItem } = params;
             const existingItemIndex = get().cart.findIndex(item => item.price_id === newItem.price_id);
