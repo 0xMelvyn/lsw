@@ -11,7 +11,7 @@ function ProductPage(props) {
   const { cost, productInfo, name, description } = product;
 
   useEffect(() => {
-    // Vérifie si le nom du produit existe, sinon redirige vers '/'
+    // Vérifier si le nom du produit existe, sinon redirige vers '/'
     if (!product?.name) {
       router.push('/');
     }
