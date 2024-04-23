@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import useCart from '../app/(store)/store';
 import Stripe from 'stripe';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const stripe = new Stripe(process.env.STRIPE_SECRET, {
   apiVersion: '2024-04-10'
@@ -66,6 +69,7 @@ const ArticlePage = ({ product }) => {
       images: productInfo.images
     };
     addItemToCart({ newItem });
+    toast.success('Produit ajouté au panier !');
   };
 
   return (
