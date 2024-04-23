@@ -12,6 +12,7 @@ import i7 from '../../public/7.webp';
 import i8 from '../../public/8.webp';
 import free from '../../public/free.png';
 import freem from '../../public/freem.png';
+import rs from '../../public/rs.png';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -68,30 +69,7 @@ const Caroussel = ({ currentSlide, setCurrentSlide }) => {
       <Image className='w-1/1 lg:w-0' src={freem}/>
     </div>
     <div className='flex relative'>
-      <div className='mx-auto'>
-        <div className='flex'>
-          <Image src={i1} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
-          <Image src={i2} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
-          <Image src={i3} alt="Homepage 1" className='w-0 lg:w-1/4'/>
-          <Image src={i4} alt="Homepage 1" className='w-0 lg:w-1/4'/>
-        </div>
-        <div className='absolute bg-opacity-90 bg-white left-1/2  -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 p-2 scale-75'>
-          <div className='flex flex-col items-center justify-around border-2 border-black h-full'>
-            <h1 className='text-sm lg:text-2xl text-gray-500'>NOUVEAUX ARTICLES</h1>
-            <div className='text-center'>
-            <p className='text-4xl font-dense lg:text-8xl lg:mx-20 pb-2 lg:px-0'>Bienvenue sur ma boutique !</p>
-              <hr className='w-2/3 border-black mx-auto' />
-            </div>
-            <a href="#" className='bg-517e94 px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out font-article'>Voir la collection</a>
-          </div>
-        </div>
-        <div className='flex'>
-          <Image src={i5} alt="Homepage 1" className='w-1/2 lg:w-1/4 rounded-se-md'/>
-          <Image src={i6} alt="Homepage 1" className='w-1/2 lg:w-1/4'/>
-          <Image src={i7} alt="Homepage 1" className='w-0 lg:w-1/4'/>
-          <Image src={i8} alt="Homepage 1" className='w-0 lg:w-1/4'/>          
-        </div>
-      </div>
+      <Image src={rs}/>
     </div>
   </Slider>
 </section>
