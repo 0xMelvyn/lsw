@@ -98,7 +98,7 @@ export default function Modal() {
           </div>
           <button
             onClick={checkout}
-            className='border border-solid border-slate-700 text-xl m-4 p-6 uppercase grid place-items-center hover:opacity-60 cursor-pointer'
+            className='border border-solid border-slate-700 text-xl m-4 my-10 p-6 uppercase grid place-items-center hover:opacity-60 cursor-pointer'
           >
             Paiement
           </button>
