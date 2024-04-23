@@ -74,7 +74,7 @@ const ArticlePage = ({ product }) => {
 
   return (
     <div className="flex flex-col pt-14 pb-24">    
-  
+    <ToastContainer />
     <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1050px] mx-auto lg:gap-20">
     <div>
       <div className="md:p-2 md:shadow">
