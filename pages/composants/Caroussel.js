@@ -13,6 +13,7 @@ import i8 from '../../public/8.webp';
 import free from '../../public/free.png';
 import freem from '../../public/freem.png';
 import rs from '../../public/rs.png';
+import rsm from '../../public/rsm.png';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -69,7 +70,8 @@ const Caroussel = ({ currentSlide, setCurrentSlide }) => {
       <Image className='w-1/1 lg:w-0' src={freem}/>
     </div>
     <div className='flex relative'>
-      <Image src={rs}/>
+      <Image className='w-0 lg:w-auto' src={rs}/>
+      <Image className='w-1/1 lg:w-0' src={rsm}/>
     </div>
   </Slider>
 </section>
