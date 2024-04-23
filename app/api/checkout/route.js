@@ -28,6 +28,12 @@ export async function POST(request) {
             quantity: 1,
         });
 
+        const discount = {
+            amount_off: 499,
+            currency: 'eur',
+            id: 'KjIW1nPV'
+        };
+
         const session = await stripe.checkout.sessions.create({
             success_url: 'https://lsw.vercel.app/success',
             cancel_url: 'https://lsw.vercel.app/',
@@ -36,6 +42,7 @@ export async function POST(request) {
                 allowed_countries: ['FR'],
             },
             mode: 'payment',
+            discounts: [discount]
         });
 
         return NextResponse.json({ session });
