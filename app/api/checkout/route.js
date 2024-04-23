@@ -30,7 +30,7 @@ export async function POST(request) {
 
         const session = await stripe.checkout.sessions.create({
             success_url: 'https://lsw.vercel.app/success',
-            cancel_url: 'https://lsw.vercel.app/cancel',
+            cancel_url: 'https://lsw.vercel.app/',
             line_items: lineItemsWithShipping,
             shipping_address_collection: {
                 allowed_countries: ['FR'],
