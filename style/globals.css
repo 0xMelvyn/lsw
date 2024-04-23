@@ -7,3 +7,16 @@
     width: 425px;
     height: 425px;
 }
+
+body {
+    padding-top: env(safe-area-inset-top); /* S'assure que le contenu ne soit pas masqué sous la barre d'outils */
+  }
+  
+  /* Applique la propriété viewport-fit seulement si la barre d'outils est visible */
+  @supports (padding-top: constant(safe-area-inset-top)) or (padding-top: env(safe-area-inset-top)) {
+    body {
+      padding-top: constant(safe-area-inset-top); /* iOS < 11.2 */
+      padding-top: env(safe-area-inset-top); /* iOS >= 11.2 */
+    }
+  }
+  
