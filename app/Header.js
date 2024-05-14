@@ -34,7 +34,7 @@ export default function Header() {
                     </button>
                 </div>
                 <Link className='flex lg:hidden justify-center' href="/"><Image src={logo} alt='Logo' width={250} height={250}/></Link>
-                <ul className={`fixed lg:flex w-full h-screen lg:h-auto z-50 justify-evenly items-center lg:static top-0 left-0 lg:w-auto bg-white lg:bg-transparent transform lg:transform-none transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} space-y-24 lg:space-y-0`}>
+                <ul className={`fixed lg:flex w-full h-screen lg:h-auto z-50 justify-evenly items-center lg:static top-0 left-0 lg:w-auto bg-white lg:bg-transparent transform lg:transform-none transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} space-y-16 lg:space-y-0`}>
                 <div className='absolute right-0 p-4 lg:hidden'>
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-4xl">
                         <BsX />
