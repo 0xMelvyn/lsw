@@ -34,7 +34,7 @@ export default function Header() {
                     </button>
                 </div>
                 <Link className='flex lg:hidden justify-center' href="/"><Image src={logo} alt='Logo' width={250} height={250}/></Link>
-                <ul className={`fixed lg:flex w-full h-screen lg:h-auto z-50 justify-evenly items-center lg:static top-0 left-0 lg:w-auto bg-white lg:bg-transparent transform lg:transform-none transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} space-y-16 lg:space-y-0`}>
+                <ul className={`fixed lg:flex w-full h-screen lg:h-auto z-50 justify-evenly items-center lg:static top-0 left-0 lg:w-auto bg-white lg:bg-transparent transform lg:transform-none transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} space-y-12 lg:space-y-0`}>
                 <div className='absolute right-0 p-4 lg:hidden'>
                     <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-4xl">
                         <BsX />
@@ -54,7 +54,7 @@ export default function Header() {
                 <BsCart3 className='text-2xl hover:text-blue-300 transition duration-500 text-gray-500' />
             </li>
                 </ul>
-                <div onClick={setOpenModal} className='flex lg:hidden text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 lg:px-8 text-gray-500 hover:cursor-pointer'>
+                <div onClick={setOpenModal} className='flex px-1 lg:hidden text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 lg:px-8 text-gray-500 hover:cursor-pointer'>
                     {totalQuantity > -1 && (
                         <div className='absolute aspect-square pointer-events-none h-5 sm:h-6 grid place-items-center top-18 bg-blue-400 text-white rounded-full right-30 -translate-y-1/2 translate-x-1/2'>
                             <p className='text-xs sm:text-sm'>{totalQuantity}</p>
