@@ -115,7 +115,7 @@ export default function Home({ stripeSecret }) {
       <main className='bg-white'>
         <Caroussel currentSlide={currentSlide} setCurrentSlide={setCurrentSlide}/>
         <section className='pt-20 lg:pt-32'>
-    <h1 className='flex justify-center text-7xl text-cyan-700 font-dense pb-5 text-center'>LES PLUS POPULAIRES</h1>
+    <h1 className='flex justify-center text-7xl text-cyan-700 font-dense pb-5 text-center'>EN CE MOMENT</h1>
 
     <Slider {...settings} className=''>
     {filteredProducts.map((product, productIndex) => (

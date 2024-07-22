@@ -54,7 +54,7 @@ const Caroussel = ({ currentSlide, setCurrentSlide }) => {
             <p className='text-4xl font-dense lg:text-8xl lg:mx-20 pb-2 lg:px-0'>Bienvenue sur ma boutique !</p>
               <hr className='w-2/3 border-black mx-auto' />
             </div>
-            <a href="#" className='bg-517e94 px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out font-article'>Voir la collection</a>
+            <a href="https://www.lulusweetworld.shop/populaire" className='bg-517e94 px-4 py-2 rounded-3xl hover:bg-b0e7f5 transition duration-300 ease-in-out font-article'>Voir la collection</a>
           </div>
         </div>
         <div className='flex'>
