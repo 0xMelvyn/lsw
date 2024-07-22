@@ -43,9 +43,8 @@ export default function RootLayout({ children, Component, pageProps }) {
 
             <ul className='flex justify-center my-5 gap-5'>
                 <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/">Accueil</Link></li>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/peluches">Peluches</Link></li>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/mode">Mode</Link></li>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/maison">Maison</Link></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/populaire">Populaire</Link></li>
+                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/nouveau">Nouveau</Link></li>
                 <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/contact">Contact</Link></li>
             </ul>
 

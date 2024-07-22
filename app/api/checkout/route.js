@@ -23,14 +23,14 @@ export async function POST(request) {
                 product_data: {
                     name: 'Frais de livraison',
                 },
-                unit_amount: 499, // Montant en centimes (5 €)
+                unit_amount: 0, // Montant en centimes (5 €)
             },
             quantity: 1,
         });
 
         const session = await stripe.checkout.sessions.create({
-            success_url: 'https://lsw.vercel.app/success',
-            cancel_url: 'https://lsw.vercel.app/',
+            success_url: 'https://www.lulusweetworld.shop/success',
+            cancel_url: 'https://www.lulusweetworld.shop/',
             line_items: lineItemsWithShipping,
             shipping_address_collection: {
                 allowed_countries: ['FR'],
