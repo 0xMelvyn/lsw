@@ -119,15 +119,15 @@ const ArticlePage = ({ product }) => {
           <div className='flex justify-around mt-8'>
             <div>
               <PiHeartBold className='mx-auto text-6xl text-red-300'/>
-              <p className=' text-lg text-gray-800 font-article justify-center'>100% Fait Main</p>
+              <p className=' text-lg text-gray-800 font-article text-center'>100% Fait Main</p>
             </div>
             <div>
               <MdOutlineLocalShipping className='mx-auto text-6xl text-red-300'/>
-              <p className=' text-lg text-gray-800 font-article justify-center'>1-2 semaines</p>
+              <p className=' text-lg text-gray-800 font-article text-center'>1-2 semaines</p>
             </div>
             <div>
               <HiOutlineBadgeCheck className='mx-auto text-6xl text-red-300'/>
-              <p className=' text-lg text-gray-800 font-article justify-center'>Certifié Oeko-Tex</p>
+              <p className=' text-lg text-gray-800 font-article text-center'>Certifié Oeko-Tex</p>
             </div>
           </div>
           <button onClick={handleAddToCart} className='flex mt-5 bg-cyan-700 justify-center mx-auto text-2xl text-white w-full py-3 rounded-md transition duration-500 hover:bg-cyan-600 font-article'>Ajouter au panier</button>
