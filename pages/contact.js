@@ -1,6 +1,5 @@
 'use client'
 import React, { useRef } from 'react';
-import Head from 'next/head';
 import emailjs from 'emailjs-com';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,7 +24,7 @@ export default function Contact() {
       theme: darkMode ? "dark" : "light",
     });
 
-    emailjs.sendForm('service_ok34pd9', 'template_yr9yz4q', form.current, 'pGbqVmTvTEyeeMMts')
+    emailjs.sendForm('service_qaggn0i', 'template_f3ul5tq', form.current, 'SPdoern9JLwWLz_FV')
       .then((result) => {
         console.log('Email successfully sent!');
       }, (error) => {
@@ -37,9 +36,6 @@ export default function Contact() {
 
   return (
     <div className="flex px-20 items-center justify-center">
-      <Head>
-        <title>Me contacter</title>
-      </Head>
       <div className='flex flex-col text-center basis-1/3 flex-1'>
         <form className='flex flex-col gap-5 py-5' ref={form} onSubmit={sendEmail}>
           <input className='shadow-lg border-2 border-solid border-gray-200 bg-transparent rounded-lg p-5' type="text" name='name' placeholder='Nom' required />
