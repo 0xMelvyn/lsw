@@ -25,6 +25,9 @@ export default function RootLayout({ children, Component, pageProps }) {
         <Head>
         <title>Lulus Sweet World</title>
         <meta name="description" content="Boutique de crochet 100% fait main." />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Lulu's Sweet World" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
         <Header />
         <div className='flex-1'>
