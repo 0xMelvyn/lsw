@@ -6,6 +6,12 @@ import useCart from '../app/(store)/store';
 import Stripe from 'stripe';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { MdOutlineLocalShipping } from "react-icons/md";
+import { PiHeartBold } from "react-icons/pi";
+import { HiOutlineBadgeCheck } from "react-icons/hi";
+
+
+
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET, {
@@ -96,7 +102,21 @@ const ArticlePage = ({ product }) => {
           )}
         </div>
         <p className='text-xl pt-5 lg:pt-10 font-article' dangerouslySetInnerHTML={{ __html: formatDescription(description) }} />
-        <button onClick={handleAddToCart} className='flex mt-5 bg-cyan-700 justify-center mx-auto text-2xl text-white w-full py-3 rounded-md hover:bg-cyan-600 font-article'>Ajouter au panier</button>
+        <div className='flex justify-around mt-8'>
+          <div>
+            <PiHeartBold className='mx-auto text-6xl text-red-300'/>
+            <p className=' text-lg text-gray-800 font-article'>100% Fait Main</p>
+          </div>
+          <div>
+          <MdOutlineLocalShipping className='mx-auto text-6xl text-red-300'/>
+            <p className=' text-lg text-gray-800 font-article'>1-2 semaines</p>
+          </div>
+          <div>
+            <HiOutlineBadgeCheck className='mx-auto text-6xl text-red-300'/>
+            <p className=' text-lg text-gray-800 font-article'>Certifié Oeko-Tex</p>
+          </div>
+        </div>
+        <button onClick={handleAddToCart} className='flex mt-5 bg-cyan-700 justify-center mx-auto text-2xl text-white w-full py-3 rounded-md transition duration-500 hover:bg-cyan-600 font-article'>Ajouter au panier</button>
       </div>
     </div>
 </div>

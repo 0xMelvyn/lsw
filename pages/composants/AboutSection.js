@@ -39,13 +39,13 @@ const AboutSection = () => {
               />
               <div>
                 <p className='flex justify-center pt-2 text-gray-700 text-xl font-LovelyValentine'>
-                  Lucile, créatrice de Lulu&apos;s Sweet World
+                  Lucile, creatrice de Lulu&apos;s Sweet World
                 </p>
               </div>
             </div>
           </div>
           <br />
-          <p className='text-gray-700 pt-5 lg:pt-0 font-article text-justify'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main</span>! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon cœur.</p>
+          <p className='text-gray-700 pt-5 lg:pt-0 font-article text-justify'>Bienvenue à tous les amoureux de l&apos;artisanat et du <span className='text-red-300'>fait-main</span> ! Je suis Lucile, la passionnée derrière chaque création. Cela fait maintenant quatre ans que le <span className='text-red-300'>crochet</span> fait partie de ma vie, et chacune des pièces que vous trouverez ici est fabriquée avec mon cœur.</p>
         </div>
       </div>
     </section> 

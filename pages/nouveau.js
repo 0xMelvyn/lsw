@@ -34,7 +34,7 @@ const PeluchesPage = ({ stripeSecret }) => {
     const fetchProducts = async () => {
       try {
         const { prices, hasMore, nextStartingAfter } = await getStripeProducts(stripeSecret, startingAfter);
-        const newProducts = prices.filter(product => !displayedProducts.has(product.id) && product.product.metadata.type === 'mode');
+        const newProducts = prices.filter(product => !displayedProducts.has(product.id) && product.product.metadata.type === 'nouveau');
         setProducts(prevProducts => [...prevProducts, ...newProducts]);
         newProducts.forEach(product => {
           displayedProducts.add(product.id);

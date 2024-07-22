@@ -41,10 +41,10 @@ export default function Header() {
                     </button>
                 </div>
                 <Link className='flex lg:hidden justify-center' onClick={handleMenuClose} href="/"><Image src={logo} alt='Logo' width={250} height={250}/></Link>
-                    <li className='lg:w-1/5 px-4' onClick={handleMenuClose}><h1 className={`text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 lg:px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/peluches">PELUCHES</Link></h1></li>
-                    <li className='lg:w-1/5' onClick={handleMenuClose}><h1 className={`text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/mode">MODE</Link></h1></li>
+                    <li className='lg:w-1/5 px-4' onClick={handleMenuClose}><h1 className={`text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 lg:px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/populaire">POPULAIRE</Link></h1></li>
+                    <li className='lg:w-1/5' onClick={handleMenuClose}><h1 className={`text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/nouveau">NOUVEAU</Link></h1></li>
                     <Link className='hidden lg:flex justify-center' href="/"><Image src={logo} alt='Logo' width={170} height={170}/></Link>
-                    <li className='lg:w-1/5' onClick={handleMenuClose}><h1 className={`text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/maison">MAISON</Link></h1></li>
+                    <li className='lg:w-1/5' onClick={handleMenuClose}><h1 className={`text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 flex justify-center mx-auto`}><Link href="/contact">CONTACT</Link></h1></li>
                     <li onClick={setOpenModal} className='flex justify-center lg:justify-start mx-auto lg:w-1/5 text-xl font-Metropolis-Regular hover:text-blue-300 transition duration-500 px-8 text-gray-500 hover:cursor-pointer'>
                 {totalQuantity > -1 && (
                     <div className='absolute aspect-square pointer-events-none h-5 sm:h-6 grid place-items-center top-18 bg-blue-400 text-white rounded-full right-30 -translate-y-1/2 translate-x-1/2' >
