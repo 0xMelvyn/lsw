@@ -11,6 +11,11 @@ module.exports = {
         'article': ['article', 'sans-serif'],
         'LovelyValentine': ['Lovely Valentine', 'sans-serif'],
         'dense': ['dense', 'sans-serif'],
+        'chewi': ['Chewi', 'sans-serif'],
+      },
+      colors: {
+        'custom-pink': '#FFE5E7',
+        'custom-purple': '#D9D5F4',
       },
     },
   },

@@ -14,7 +14,7 @@ const AboutSection = () => {
         <hr className='pt-6' />
       </div>
       <div className='hidden -rotate-[5deg] lg:flex lg:absolute justify-center mx-20'>
-        <div className=' justify-center p-2 pb-3 bg-red-200'>
+        <div className=' justify-center p-2 pb-3 bg-custom-pink'>
           <Image
             src={mathilde}
             width={330}
@@ -31,7 +31,7 @@ const AboutSection = () => {
         <div className='border-dashed border-4 border-gray-700 py-10 px-4 lg:px-20 text-xl font-article rounded-3xl'>
           <p className='text-5xl text-gray-800 text-center lg:text-left'>Qui suis-je ?</p>
           <div className='lg:hidden -rotate-[5deg] flex lg:absolute pt-10 justify-center mx-2'>
-            <div className=' justify-center p-2 pb-3 bg-red-200'>
+            <div className=' justify-center p-2 pb-3 bg-custom-pink'>
               <Image
                 src={mathilde}
                 width={330}

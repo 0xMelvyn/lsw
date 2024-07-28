@@ -18,3 +18,10 @@
     font-weight: normal;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: 'chewi'; /* Remplacez 'SecondFont' par le nom réel de votre deuxième police */
+    src: url('../public/Chewy.ttf') format('truetype'); /* Assurez-vous que le nom du fichier et l'extension sont corrects */
+    font-weight: normal;
+    font-style: normal;
+  }

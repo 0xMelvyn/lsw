@@ -41,7 +41,7 @@ export default function Contact() {
           <input className='shadow-lg border-2 border-solid border-gray-200 bg-transparent rounded-lg p-5' type="text" name='name' placeholder='Nom' required />
           <input className='shadow-lg border-2 border-solid border-gray-200 bg-transparent rounded-lg p-5' type="email" name='email' placeholder='Email' required />
           <textarea className='shadow-lg border-2 border-solid border-gray-200 bg-transparent rounded-lg p-5' name="message" rows="7" placeholder='Message' required></textarea>
-          <button className='shadow-lg bg-cyan-700 rounded-lg p-5 hover:bg-cyan-600 transition duration-500 text-white' type='submit'>Envoyer</button>
+          <button className='shadow-lg bg-gradient-to-l from-custom-purple to-custom-pink rounded-lg p-5 hover:scale-105 hover:opacity-80 transition duration-500 text-white font-chewi text-3xl' type='submit'>ENVOYER</button>
         </form>
       </div>
       <ToastContainer />

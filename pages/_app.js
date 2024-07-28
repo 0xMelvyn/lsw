@@ -40,21 +40,21 @@ export default function RootLayout({ children, Component, pageProps }) {
         <Image src={wave} alt="Wave" className=' w-1/4'/>
         <Image src={wave} alt="Wave" className=' w-1/4'/>
         </div>
-        <footer className='flex items-center bg-cyan-700 flex-wrap justify-center p-4 md:p-8 font-article'>
-        <div className='my-5 text-center'>
-            <Link className='text-2xl text-white hover:text-gray-200 transition duration-500' href="/">Lulu&apos;s Sweet World</Link>
+        <footer className='flex items-center bg-gradient-to-t from-custom-purple to-custom-pink flex-wrap justify-center p-4 md:p-8 font-article'>
+        <div className='my-5 text-center text-2xl font-chewi'>
+            <Link className=' text-white text-4xl hover:underline transition duration-500' href="/">Lulu&apos;s Sweet World</Link>
 
             <ul className='flex justify-center my-5 gap-5'>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/">Accueil</Link></li>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/populaire">Populaire</Link></li>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/nouveau">Nouveau</Link></li>
-                <li><Link className='text-white hover:text-gray-200 transition duration-500' href="/contact">Contact</Link></li>
+                <li><Link className='text-white hover:underline transition duration-500' href="/">Accueil</Link></li>
+                <li><Link className='text-white hover:underline transition duration-500' href="/populaire">Populaire</Link></li>
+                <li><Link className='text-white hover:underline transition duration-500' href="/nouveau">Nouveau</Link></li>
+                <li><Link className='text-white hover:underline transition duration-500' href="/contact">Contact</Link></li>
             </ul>
 
             <div className='flex justify-center text-center text-2xl my-5 gap-5'>
-                <Link className='text-white hover:text-gray-200 transition duration-500' href="https://www.instagram.com/lulus_sweet_world/" target='_blank'><FaInstagram /></Link>
-                <Link className='text-white hover:text-gray-200 transition duration-500' href="https://www.youtube.com/@lulussweetworld" target='_blank'><FaYoutube /></Link>
-                <Link className='text-white hover:text-gray-200 transition duration-500' href="https://www.tiktok.com/@lulussweetworld" target='_blank'><FaTiktok /></Link>
+                <Link className='text-white hover:underline transition duration-500' href="https://www.instagram.com/lulus_sweet_world/" target='_blank'><FaInstagram /></Link>
+                <Link className='text-white hover:underline transition duration-500' href="https://www.youtube.com/@lulussweetworld" target='_blank'><FaYoutube /></Link>
+                <Link className='text-white hover:underline transition duration-500' href="https://www.tiktok.com/@lulussweetworld" target='_blank'><FaTiktok /></Link>
             </div>
 
             <div className='text-center'>
