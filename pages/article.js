@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { PiHeartBold } from "react-icons/pi";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
+import Avis from './composants/Avis';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET, {
   apiVersion: '2024-04-10'
@@ -82,9 +83,9 @@ const ArticlePage = ({ product }) => {
   };
 
   return (
-    <div className="flex flex-col pt-14 pb-24">    
+    <div className="flex flex-col pt-14 pb-14">    
       <ToastContainer />
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1050px] mx-auto lg:gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1050px] mx-auto lg:gap-20 pb-8">
         <div>
           <div className="md:p-2 md:shadow">
             <img src={selectedImage || productInfo.images[0]} alt={name} className="w-full h-full object-cover" />
@@ -118,21 +119,22 @@ const ArticlePage = ({ product }) => {
           )}
           <div className='flex justify-around mt-8'>
             <div>
-              <PiHeartBold className='mx-auto text-6xl text-custom-purple'/>
+              <PiHeartBold className='mx-auto text-6xl text-custom-pink'/>
               <p className=' text-lg text-gray-800 font-article text-center'>100% Fait Main</p>
             </div>
             <div>
-              <MdOutlineLocalShipping className='mx-auto text-6xl text-custom-purple'/>
+              <MdOutlineLocalShipping className='mx-auto text-6xl text-custom-pink'/>
               <p className=' text-lg text-gray-800 font-article text-center'>1-2 semaines</p>
             </div>
             <div>
-              <HiOutlineBadgeCheck className='mx-auto text-6xl text-custom-purple'/>
+              <HiOutlineBadgeCheck className='mx-auto text-6xl text-custom-pink'/>
               <p className=' text-lg text-gray-800 font-article text-center'>Certifié Oeko-Tex</p>
             </div>
           </div>
-          <button onClick={handleAddToCart} className='flex mt-5 bg-gradient-to-l from-custom-purple to-custom-pink justify-center mx-auto text-3xl text-white w-full py-3 rounded-md transition duration-500 font-chewi hover:scale-105 hover:opacity-80'>AJOUTER AU PANIER</button>
+          <button onClick={handleAddToCart} className='flex mt-5 bg-custom-purple justify-center mx-auto text-3xl text-white w-full py-3 rounded-md transition duration-500 font-chewi hover:scale-105 hover:opacity-80'>AJOUTER AU PANIER</button>
     </div>
       </div>
+      <Avis/>
     </div>
   );
 };

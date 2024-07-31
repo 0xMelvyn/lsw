@@ -11,6 +11,7 @@ import ProductCard from '../app/ProductCard';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useMediaQuery } from 'react-responsive';
+import Avis from './composants/Avis';
 
 export async function getServerSideProps() {
   return {
@@ -129,6 +130,7 @@ export default function Home({ stripeSecret }) {
 </section>
         <HowItWorks/>
         <AboutSection/>
+        <Avis/>
       </main>
     </div>
   );
