@@ -24,6 +24,7 @@ export default function RootLayout({ children, Component, pageProps }) {
     <>  
         <Head>
         <title>Lulus Sweet World</title>
+        <meta name="trustpilot-one-time-domain-verification-id" content="2dbe4708-5fa2-442d-982c-2aa7bd007dc6"/>
         <meta name="description" content="Boutique de crochet 100% fait main." />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Lulu's Sweet World" />
