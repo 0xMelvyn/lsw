@@ -42,7 +42,7 @@ export default function RootLayout({ children, Component, pageProps }) {
         <Image src={wave} alt="Wave" className=' w-1/4'/>
         </div>
         <footer className='flex items-center bg-gradient-to-t from-custom-purple to-custom-pink flex-wrap justify-center p-4 md:p-8 font-article'>
-        <div className='my-5 text-center text-2xl font-chewi'>
+        <div className='my-5 text-center text-xl md:text-2xl font-chewi'>
             <Link className=' text-white text-4xl hover:underline transition duration-500' href="/">Lulu&apos;s Sweet World</Link>
 
             <ul className='flex justify-center my-5 gap-5'>
