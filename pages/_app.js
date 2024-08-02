@@ -29,6 +29,14 @@ export default function RootLayout({ children, Component, pageProps }) {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Lulu's Sweet World" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:title" content="Lulu's Sweet World" />
+    <meta property="og:description" content="Boutique de crochet 100% fait main." />
+    <meta property="og:image" content="https://res.cloudinary.com/dxecll7yj/image/upload/v1722627917/LSW/fbs_gr7ovf.png" />
+    <meta property="og:url" content="https://www.lulusweetworld.shop/" />
+    <meta property="og:type" content="product" />
+    <meta property="og:site_name" content="Lulu's Sweet World" />
+    <meta property="og:locale" content="fr_FR" />
       </Head>
         <Header />
         <div className='flex-1'>
