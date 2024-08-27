@@ -4,6 +4,7 @@ import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import Image from 'next/image';
 import wave from '../public/Waveblue.png';
 import dotenv from 'dotenv';
+import { Analytics } from "@vercel/analytics/react"
 dotenv.config();
 
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children, Component, pageProps }) {
         <div className='flex-1'>
         <Component {...pageProps} />
           {children}
+          <Analytics />
         </div>
         <div className='flex'>
         <Image src={wave} alt="Wave" className=' w-1/4'/>
