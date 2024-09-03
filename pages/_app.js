@@ -10,7 +10,7 @@ dotenv.config();
 
 export const metadata = {
   title: "Lulu's Sweet world",
-  description: 'Boutique de crochet 100% fait main.',
+  description: 'Boutique de crochet 100% fait main !',
 }
 
 import { Inter } from 'next/font/google'
