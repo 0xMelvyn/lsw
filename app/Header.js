@@ -104,7 +104,7 @@ export default function Header() {
               />
             </svg>
           </button>
-          <Link className='flex justify-center' href="/"><Image src={logo} alt='Logo' width={200} height={200}/></Link>
+          <Link onClick={() => setIsOpen(false)} className='flex justify-center' href="/"><Image src={logo} alt='Logo' width={200} height={200}/></Link>
           <Link
             href="/populaire"
             className="py-2 text-lg hover:text-custom-purple text-center transition duration-300 ease-in-out"
