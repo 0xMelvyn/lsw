@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="flex px-20 items-center justify-center">
+    <div className="flex px-3 lg:px-20 items-center justify-center">
       <div className='flex flex-col text-center basis-1/3 flex-1'>
         <form className='flex flex-col gap-5 py-5' ref={form} onSubmit={sendEmail}>
           <input className='shadow-lg border-2 border-solid border-gray-200 bg-transparent rounded-lg p-5' type="text" name='name' placeholder='Nom' required />
