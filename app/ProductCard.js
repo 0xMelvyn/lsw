@@ -18,7 +18,7 @@ export default function ProductCard(props) {
         // Show loader for at least 500ms before hiding
         const timer = setTimeout(() => {
             setShowLoader(false)
-        }, 1500)
+        }, 2000)
 
         return () => clearTimeout(timer)
     }, [])
